@@ -7,24 +7,11 @@ namespace ProjetoEntityFramework.Data
     {
         public DbSet<Category> Categories { get; set; }
         public DbSet<Post> Posts { get; set; }
-        public DbSet<PostTag> PostTags { get; set; }
+        //public DbSet<PostTag> PostTags { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Definindo a chave composta para PostTag
-            modelBuilder.Entity<PostTag>()
-                .HasKey(pt => new { pt.PostId, pt.TagId });
-
-            // Definindo a chave composta para UserRole
-            modelBuilder.Entity<UserRole>()
-                .HasKey(ur => new { ur.UserId, ur.RoleId });
-
-            // Outras configurações...
-        }
+        //public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
